@@ -1,0 +1,7 @@
+#юрл хранится в $_GET['route'], все запросы перенаправляются в index.php Если по ссылке существует файл переходит в этот файл  [QSA]-нужен что бы читались все GET параметры
+RewriteEngine On
+
+RewriteCond %{SCRIPT_FILENAME} !-d
+RewriteCond %{SCRIPT_FILENAME} !-f
+
+RewriteRule ^(.*)$ ./index.php?route=$1 [L,QSA]
